@@ -1,0 +1,38 @@
+/* The following block can be included in a custom.scss */
+
+/* make the customizations */
+$theme-colors: (
+  "primary": #766df4,
+  "info": tomato,
+  "danger": teal,
+);
+
+//Body
+$body-bg: #f7f7fc;
+
+//Font
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+$font-family-sans-serif: "Inter", sans-serif;
+
+//Typography
+$display4-weight: 600;
+$hr-border-color: rgba(#fff, 0.14);
+$headings-color: #4a4b65;
+$headings-font-weight: 600;
+
+//Buttons
+$border-radius: 0.75rem;
+$input-btn-padding-y: 0.5625rem;
+$input-btn-padding-x: 1.25rem;
+$btn-font-weight: 500;
+
+//Mixins
+// Faded background color
+@each $color, $value in $theme-colors {
+  .bg-faded-#{$color} {
+    background-color: rgba($value, 0.08) !important;
+  }
+}
+
+/* import bootstrap to set changes */
+@import "~bootstrap/scss/bootstrap";

@@ -1,209 +1,108 @@
-import Head from 'next/head'
+import Head from "next/head";
+import Link from "next/link";
+import { Button, na, Navbar, Nav } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   return (
-    <div className="container">
+    <>
       <Head>
         <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <Navbar expand="lg" variant="dark" sticky="top" className="container py-4">
+        <Navbar.Brand href="#home" className="font-weight-bolder">
+          Paolo Imperiale
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="#home">Chi sono</Nav.Link>
+            <Nav.Link href="#link">Servizi di consulenza</Nav.Link>
+            <Nav.Link href="#link">Clienti</Nav.Link>
+            <Nav.Link href="#link">Certificazioni</Nav.Link>
+            <Nav.Link href="#link">Contatti</Nav.Link>
+          </Nav>
+          <Button>
+            <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
+            Call to action
+          </Button>
+        </Navbar.Collapse>
+      </Navbar>
       <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/zeit/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <section style={{ backgroundColor: "#37384e" }} className="pt-lg-5">
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-lg-6 d-flex justify-content-end">
+                <div className="mr-lg-5" style={{ maxWidth: "495px" }}>
+                  <h1 class="display-4 text-light pb-2">
+                    <span class="font-weight-light">Professionista in </span>
+                    Marketing Digitale
+                  </h1>
+                  <p className="h4 font-weight-light text-light opacity-70 line-height-base">
+                    Strategia, Formazione, e Trasformazione Digitale per le
+                    Piccole e Medie Imprese
+                  </p>
+                  <Button variant="outline-primary" className="mt-4 mb-5">
+                    <FontAwesomeIcon icon={faArrowDown} className="mr-2" />
+                    Call to action
+                  </Button>
+                  <hr className="hr-light mb-5" />
+                  <div className="row">
+                    <div className="col-sm-4 mb-4 mb-sm-0">
+                      <div className="h1 text-light mb-1">25</div>
+                      <div className="h5 text-light font-weight-normal opacity-70 mb-2">
+                        Anni di esperienza
+                      </div>
+                    </div>
+                    <div className="col-sm-4 mb-4 mb-sm-0">
+                      <div className="h1 text-light mb-1">44</div>
+                      <div className="h5 text-light font-weight-normal opacity-70 mb-1">
+                        Certificazioni conseguite
+                      </div>
+                      <span className="badge badge-pill badge-success">
+                        More coming
+                      </span>
+                    </div>
+                    <div className="col-sm-4">
+                      <div className="h1 text-light mb-1">> 500k</div>
+                      <div className="h5 text-light font-weight-normal opacity-70 mb-1">
+                        Budget gestito nel 2020
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <img src="/paolo-imperiale.jpg" className="selfie rounded-circle" />
+              </div>
+            </div>
+          </div>
+          <div className="cs-shape cs-shape-bottom cs-shape-curve bg-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
+              <path
+                fill="currentColor"
+                d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z"
+              ></path>
+            </svg>
+          </div>
+        </section>
+        <section>
+          <div className="container pt-5 pb-4 py-md-6 py-lg-7">
+            <div className="text-center mb-5 pt-3 pt-lg-4">
+              <h2 className="h1 mb-4">
+                Garanzia{" "}
+                <span className="bg-faded-primary rounded text-primary px-3 py-2">
+                  Certificata
+                </span>
+              </h2>
+              <p className="text-muted">
+                Consulente Certificato Google Partner e Bing Ads
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
-  )
+    </>
+  );
 }
