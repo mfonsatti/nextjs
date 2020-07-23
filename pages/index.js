@@ -65,7 +65,7 @@ export default function Home() {
                       </span>
                     </div>
                     <div className="col-sm-4">
-                      <div className="h1 text-light mb-1">> 500k</div>
+                      <div className="h1 text-light mb-1">&gt; 500k</div>
                       <div className="h5 text-light font-weight-normal opacity-70 mb-1">
                         Budget gestito nel 2020
                       </div>
