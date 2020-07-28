@@ -189,22 +189,23 @@ export default function Home() {
                             <p className="subtitle">
                               Insights utili per le vostre decisioni di business
                             </p>
+                            <Accordion.Collapse eventKey="0">
+                              <p className="font-size-sm">
+                                Le piccole o medie imprese (PMI) oggi hanno due
+                                importanti problemi con i dati: il primo è la
+                                loro qualità e attendibilità (spesso ne
+                                raccolgono troppi e/o in forma fallace). Il
+                                secondo è la difficoltà ad assumere risorse
+                                interne specializzate nell’analisi e
+                                manipolazione dei dati per ottenere gli
+                                “insights” utili a guidare le decisioni
+                                strategiche. Una consulenza esterna qualificata
+                                può rappresentare una soluzione a costi
+                                decisamente inferiori all’assunzione di una
+                                risorsa, o all’affidarsi ad una agenzia.
+                              </p>
+                            </Accordion.Collapse>
                           </CustomToggle>
-                          <Accordion.Collapse eventKey="0">
-                            <p className="font-size-sm">
-                              Le piccole o medie imprese (PMI) oggi hanno due
-                              importanti problemi con i dati: il primo è la loro
-                              qualità e attendibilità (spesso ne raccolgono
-                              troppi e/o in forma fallace). Il secondo è la
-                              difficoltà ad assumere risorse interne
-                              specializzate nell’analisi e manipolazione dei
-                              dati per ottenere gli “insights” utili a guidare
-                              le decisioni strategiche. Una consulenza esterna
-                              qualificata può rappresentare una soluzione a
-                              costi decisamente inferiori all’assunzione di una
-                              risorsa, o all’affidarsi ad una agenzia.
-                            </p>
-                          </Accordion.Collapse>
                         </div>
                         <div className="card bg-light shadow-lg rounded-lg p-4 mb-4 text-center text-sm-left">
                           <CustomToggle eventKey="1">
@@ -220,20 +221,21 @@ export default function Home() {
                             <p className="subtitle">
                               Implementazione e pianificazione della strategia
                             </p>
+                            <Accordion.Collapse eventKey="1">
+                              <p className="font-size-sm">
+                                Esecuzione della strategia concordata e suo
+                                allineamento agli obiettivi. Pianificazione e
+                                gestione operativa quotidiana delle campagne di
+                                marketing digitale (Google Ads e Bing Ads) e
+                                loro continua ottimizzazione per il
+                                raggiungimento del miglior ritorno
+                                sull’investimento possibile. Continua
+                                misurazione, testing, e comprensibile reporting
+                                completano l’attività consulenziale offerta al
+                                Cliente.
+                              </p>
+                            </Accordion.Collapse>
                           </CustomToggle>
-                          <Accordion.Collapse eventKey="1">
-                            <p className="font-size-sm">
-                              Esecuzione della strategia concordata e suo
-                              allineamento agli obiettivi. Pianificazione e
-                              gestione operativa quotidiana delle campagne di
-                              marketing digitale (Google Ads e Bing Ads) e loro
-                              continua ottimizzazione per il raggiungimento del
-                              miglior ritorno sull’investimento possibile.
-                              Continua misurazione, testing, e comprensibile
-                              reporting completano l’attività consulenziale
-                              offerta al Cliente.
-                            </p>
-                          </Accordion.Collapse>
                         </div>
                         <div className="card bg-light shadow-lg rounded-lg p-4 mb-4 text-center text-sm-left">
                           <CustomToggle eventKey="2">
@@ -250,12 +252,12 @@ export default function Home() {
                               Continuo aggiornamento su piattaforme in costante
                               evoluzione
                             </p>
+                            <Accordion.Collapse eventKey="2">
+                              <p className="font-size-sm">
+                                Lorem ipsum dolor sit amet
+                              </p>
+                            </Accordion.Collapse>
                           </CustomToggle>
-                          <Accordion.Collapse eventKey="2">
-                            <p className="font-size-sm">
-                              Lorem ipsum dolor sit amet
-                            </p>
-                          </Accordion.Collapse>
                         </div>
                       </Accordion>
                     </div>
@@ -274,12 +276,12 @@ export default function Home() {
                               Find aute irure dolor in reprehend in voluptate
                               velit esse cillum dolore eu fugiat nulla pariatur.{" "}
                             </p>
+                            <Accordion.Collapse eventKey="3">
+                              <p className="font-size-sm">
+                                Lorem ipsum dolor sit amet
+                              </p>
+                            </Accordion.Collapse>
                           </CustomToggle>
-                          <Accordion.Collapse eventKey="3">
-                            <p className="font-size-sm">
-                              Lorem ipsum dolor sit amet
-                            </p>
-                          </Accordion.Collapse>
                         </div>
                         <div className="card bg-light shadow-lg rounded-lg p-4 mb-4 text-center text-sm-left">
                           <CustomToggle eventKey="4">
@@ -295,23 +297,24 @@ export default function Home() {
                             <p className="subtitle">
                               Principi e metodo della mia attività di consulente
                             </p>
+                            <Accordion.Collapse eventKey="4">
+                              <p className="description font-size-sm">
+                                In oltre 10 anni di esperienza come consulente,
+                                ho sempre privilegiato i valori della
+                                trasparenza, onestà intellettuale, riservatezza,
+                                ed il rispetto dei ruoli. Ho maturato un metodo
+                                operativo collaudato che garantisce a tutti i
+                                clienti risultati in tempi ragionevolmente
+                                brevi. I Clienti sono seguiti personalmente e
+                                con molti di essi mi pregio di aver instaurato
+                                rapporti di collaborazione continuativi. Abbiamo
+                                raggiunto obiettivi ambiziosi e ho potuto nel
+                                tempo, trasferire quella conoscenza degli
+                                strumenti necessaria a comprendere il valore
+                                generato.
+                              </p>
+                            </Accordion.Collapse>
                           </CustomToggle>
-                          <Accordion.Collapse eventKey="4">
-                            <p className="description font-size-sm">
-                              In oltre 10 anni di esperienza come consulente, ho
-                              sempre privilegiato i valori della trasparenza,
-                              onestà intellettuale, riservatezza, ed il rispetto
-                              dei ruoli. Ho maturato un metodo operativo
-                              collaudato che garantisce a tutti i clienti
-                              risultati in tempi ragionevolmente brevi. I
-                              Clienti sono seguiti personalmente e con molti di
-                              essi mi pregio di aver instaurato rapporti di
-                              collaborazione continuativi. Abbiamo raggiunto
-                              obiettivi ambiziosi e ho potuto nel tempo,
-                              trasferire quella conoscenza degli strumenti
-                              necessaria a comprendere il valore generato.
-                            </p>
-                          </Accordion.Collapse>
                         </div>
                       </Accordion>
                     </div>
