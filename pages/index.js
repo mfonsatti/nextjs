@@ -1,16 +1,68 @@
 import Head from "next/head";
 import Link from "next/link";
-import { Button, na, Navbar, Nav } from "react-bootstrap";
+import {
+  Button,
+  na,
+  Navbar,
+  Nav,
+  Accordion,
+  Card,
+  useAccordionToggle,
+  AccordionContext,
+} from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane, faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPaperPlane,
+  faArrowDown,
+  faPlus,
+  faMinus,
+} from "@fortawesome/free-solid-svg-icons";
+import { useContext, useCallback } from "react";
+
+const getContents = () => {
+  fetch("http://localhost:1337/contents?page.name=home")
+    .then((response) => response.json())
+    .then((contents) => contents);
+};
 
 export default function Home() {
+  const CustomToggle = ({ children, eventKey, callback }) => {
+    const currentEventKey = useContext(AccordionContext);
+    const decoratedOnClick = useAccordionToggle(
+      eventKey,
+      () => callback && callback(eventKey)
+    );
+
+    const isCurrentEventKey = currentEventKey === eventKey;
+
+    const getIcon = useCallback(() => {
+      return isCurrentEventKey ? faMinus : faPlus;
+    }, [isCurrentEventKey]);
+
+    return (
+      <div
+        onClick={decoratedOnClick}
+        className="custom-toggle position-relative"
+      >
+        {children}
+        <Button variant="outline-primary" className="btn-sm indicator">
+          <FontAwesomeIcon icon={getIcon()} />
+        </Button>
+      </div>
+    );
+  };
+
   return (
     <>
       <Head>
         <title>Create Next App</title>
       </Head>
-      <Navbar expand="lg" variant="dark" sticky="top" className="container py-4">
+      <Navbar
+        expand="lg"
+        variant="dark"
+        sticky="top"
+        className="container py-4"
+      >
         <Navbar.Brand href="#home" className="font-weight-bolder">
           Paolo Imperiale
         </Navbar.Brand>
@@ -35,8 +87,10 @@ export default function Home() {
             <div className="row">
               <div className="col-lg-6 d-flex justify-content-end">
                 <div className="mr-lg-5" style={{ maxWidth: "495px" }}>
-                  <h1 class="display-4 text-light pb-2">
-                    <span class="font-weight-light">Professionista in </span>
+                  <h1 className="display-4 text-light pb-2">
+                    <span className="font-weight-light">
+                      Professionista in{" "}
+                    </span>
                     Marketing Digitale
                   </h1>
                   <p className="h4 font-weight-light text-light opacity-70 line-height-base">
@@ -74,7 +128,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="col-lg-6">
-                <img src="/paolo-imperiale.jpg" className="selfie rounded-circle" />
+                <img
+                  src="/paolo-imperiale.jpg"
+                  className="selfie rounded-circle"
+                />
               </div>
             </div>
           </div>
@@ -99,6 +156,168 @@ export default function Home() {
               <p className="text-muted">
                 Consulente Certificato Google Partner e Bing Ads
               </p>
+            </div>
+            <div className="row">
+              <div className="col-lg-4 col-md-5 text-center text-md-left mb-5 mb-md-0">
+                <h2 className="mb-3">Al tuo servizio</h2>
+                <p className="text-muted mb-4 pb-2">
+                  Esperto professionista in marketing digitale, specializzato in
+                  Google Analytics e gestione campagne Google Ads e Bing Ads.
+                  Delineo ed implemento efficaci strategie ‘data driven‘ per
+                  convertire le visite al vostro sito in vendite o contatti
+                  utili al vostro business.
+                </p>
+                <a className="btn btn-primary" href="#">
+                  <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
+                  Call to action
+                </a>
+              </div>
+              <div className="col-lg-8 col-md-7 bg-position-center bg-no-repeat">
+                <div className="mx-auto" style={{ maxWidth: "610px" }}>
+                  <div className="row align-items-center">
+                    <div className="col-sm-6">
+                      <Accordion defaultActiveKey="0">
+                        <div className="card bg-light shadow-lg rounded-lg p-4 mb-4 text-center text-sm-left">
+                          <CustomToggle eventKey="0">
+                            <img
+                              className="d-inline-block mb-4 mt-2"
+                              width="100"
+                              src="strategy-and-innovation.svg"
+                              alt="Icon"
+                            />
+                            <h3 className="h5 mb-2">Strategie “Data-Driven”</h3>
+                            <p className="subtitle">
+                              Insights utili per le vostre decisioni di business
+                            </p>
+                          </CustomToggle>
+                          <Accordion.Collapse eventKey="0">
+                            <p className="font-size-sm">
+                              Le piccole o medie imprese (PMI) oggi hanno due
+                              importanti problemi con i dati: il primo è la loro
+                              qualità e attendibilità (spesso ne raccolgono
+                              troppi e/o in forma fallace). Il secondo è la
+                              difficoltà ad assumere risorse interne
+                              specializzate nell’analisi e manipolazione dei
+                              dati per ottenere gli “insights” utili a guidare
+                              le decisioni strategiche. Una consulenza esterna
+                              qualificata può rappresentare una soluzione a
+                              costi decisamente inferiori all’assunzione di una
+                              risorsa, o all’affidarsi ad una agenzia.
+                            </p>
+                          </Accordion.Collapse>
+                        </div>
+                        <div className="card bg-light shadow-lg rounded-lg p-4 mb-4 text-center text-sm-left">
+                          <CustomToggle eventKey="1">
+                            <img
+                              className="d-inline-block mb-4 mt-2"
+                              width="100"
+                              src="hr-and-talent.svg"
+                              alt="Icon"
+                            />
+                            <h3 className="h5 mb-2">
+                              Pianificazione e Gestione operativa
+                            </h3>
+                            <p className="subtitle">
+                              Implementazione e pianificazione della strategia
+                            </p>
+                          </CustomToggle>
+                          <Accordion.Collapse eventKey="1">
+                            <p className="font-size-sm">
+                              Esecuzione della strategia concordata e suo
+                              allineamento agli obiettivi. Pianificazione e
+                              gestione operativa quotidiana delle campagne di
+                              marketing digitale (Google Ads e Bing Ads) e loro
+                              continua ottimizzazione per il raggiungimento del
+                              miglior ritorno sull’investimento possibile.
+                              Continua misurazione, testing, e comprensibile
+                              reporting completano l’attività consulenziale
+                              offerta al Cliente.
+                            </p>
+                          </Accordion.Collapse>
+                        </div>
+                        <div className="card bg-light shadow-lg rounded-lg p-4 mb-4 text-center text-sm-left">
+                          <CustomToggle eventKey="2">
+                            <img
+                              className="d-inline-block mb-4 mt-2"
+                              width="100"
+                              src="training-and-certifications.svg"
+                              alt="Icon"
+                            />
+                            <h3 className="h5 mb-2">
+                              Aggiornamento Professionale
+                            </h3>
+                            <p className="font-size-sm">
+                              Continuo aggiornamento su piattaforme in costante
+                              evoluzione
+                            </p>
+                          </CustomToggle>
+                          <Accordion.Collapse eventKey="2">
+                            <p className="font-size-sm">
+                              Lorem ipsum dolor sit amet
+                            </p>
+                          </Accordion.Collapse>
+                        </div>
+                      </Accordion>
+                    </div>
+                    <div className="col-sm-6">
+                      <Accordion>
+                        <div className="card bg-light shadow-lg rounded-lg p-4 mb-4 text-center text-sm-left">
+                          <CustomToggle eventKey="3">
+                            <img
+                              className="d-inline-block mb-4 mt-2"
+                              width="100"
+                              src="advanced-analytics.svg"
+                              alt="Icon"
+                            />
+                            <h3 className="h5 mb-2">Advanced Analytics</h3>
+                            <p>
+                              Find aute irure dolor in reprehend in voluptate
+                              velit esse cillum dolore eu fugiat nulla pariatur.{" "}
+                            </p>
+                          </CustomToggle>
+                          <Accordion.Collapse eventKey="3">
+                            <p className="font-size-sm">
+                              Lorem ipsum dolor sit amet
+                            </p>
+                          </Accordion.Collapse>
+                        </div>
+                        <div className="card bg-light shadow-lg rounded-lg p-4 mb-4 text-center text-sm-left">
+                          <CustomToggle eventKey="4">
+                            <img
+                              className="d-inline-block mb-4 mt-2"
+                              width="100"
+                              src="sales-and-marketing.svg"
+                              alt="Icon"
+                            />
+                            <h3 className="h5 mb-2">
+                              Creazione e Trasferimento del Valore
+                            </h3>
+                            <p className="subtitle">
+                              Principi e metodo della mia attività di consulente
+                            </p>
+                          </CustomToggle>
+                          <Accordion.Collapse eventKey="4">
+                            <p className="description font-size-sm">
+                              In oltre 10 anni di esperienza come consulente, ho
+                              sempre privilegiato i valori della trasparenza,
+                              onestà intellettuale, riservatezza, ed il rispetto
+                              dei ruoli. Ho maturato un metodo operativo
+                              collaudato che garantisce a tutti i clienti
+                              risultati in tempi ragionevolmente brevi. I
+                              Clienti sono seguiti personalmente e con molti di
+                              essi mi pregio di aver instaurato rapporti di
+                              collaborazione continuativi. Abbiamo raggiunto
+                              obiettivi ambiziosi e ho potuto nel tempo,
+                              trasferire quella conoscenza degli strumenti
+                              necessaria a comprendere il valore generato.
+                            </p>
+                          </Accordion.Collapse>
+                        </div>
+                      </Accordion>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
