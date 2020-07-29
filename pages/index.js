@@ -71,9 +71,12 @@ export default function Home() {
     }, [isCurrentEventKey]);
 
     return (
-      <div onClick={decoratedOnClick} className={`faq-toggle position-relative mb-3 ${isCollapsed()}`}>
+      <div
+        onClick={decoratedOnClick}
+        className={`faq-toggle position-relative mb-3 ${isCollapsed()}`}
+      >
         {children}
-        <FontAwesomeIcon icon={getIcon()} className="indicator"/>
+        <FontAwesomeIcon icon={getIcon()} className="indicator" />
       </div>
     );
   };
@@ -355,16 +358,19 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section>
+        <section className="bg-white">
           <div className="container pt-5 pb-4 py-md-6 py-lg-7">
             <div className="text-center mb-5 pt-3 pt-lg-4">
               <h2 className="h1 mb-4">
-                Aree
+                Aree{" "}
                 <span className="bg-faded-primary rounded text-primary px-3 py-2">
                   Operative
                 </span>
               </h2>
-              <p className="text-muted">Scopri a quale dei vertical di mercato in cui opero appartiene la tua azienda</p>
+              <p className="text-muted">
+                Scopri a quale dei vertical di mercato in cui opero appartiene
+                la tua azienda
+              </p>
             </div>
             <div className="row">
               <div className="col-lg-6">
@@ -391,9 +397,7 @@ export default function Home() {
                     </Accordion.Collapse>
                   </FaqToggle>
                   <FaqToggle eventKey="1">
-                    <h3 className="h5 title">
-                      E-commerce, vendite online
-                    </h3>
+                    <h3 className="h5 title">E-commerce, vendite online</h3>
                     <Accordion.Collapse eventKey="1">
                       <p className="font-size-md description">
                         Nel segmento e-commerce (vendite dirette online) ho
@@ -422,9 +426,7 @@ export default function Home() {
                     </Accordion.Collapse>
                   </FaqToggle>
                   <FaqToggle eventKey="3">
-                    <h3 className="h5 title">
-                      Agenzie e Sviluppo Web
-                    </h3>
+                    <h3 className="h5 title">Agenzie e Sviluppo Web</h3>
                     <Accordion.Collapse eventKey="3">
                       <p className="font-size-md description">
                         Molte agenzie di sviluppo siti non dispongono nel loro
@@ -437,9 +439,7 @@ export default function Home() {
                     </Accordion.Collapse>
                   </FaqToggle>
                   <FaqToggle eventKey="4">
-                    <h3 className="h5 title">
-                      Travels, Hotels
-                    </h3>
+                    <h3 className="h5 title">Travels, Hotels</h3>
                     <Accordion.Collapse eventKey="4">
                       <p className="font-size-md description">
                         Il travel è uno dei mercati online più competitivi sui
@@ -477,7 +477,28 @@ export default function Home() {
                   </FaqToggle>
                 </Accordion>
               </div>
-              <div className="col-lg-6"></div>
+              <div className="col-lg-6">
+                <img src="faq-image.jpg" className="img-fluid" />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div className="container pt-5 pb-4 py-md-6 py-lg-7">
+            <div className="text-center mb-5 pt-3 pt-lg-4">
+              <h2 className="h1 mb-4">
+                Preventivo{" "}
+                <span className="bg-faded-primary rounded text-primary px-3 py-2">
+                  Gratuito
+                </span>
+              </h2>
+              <p className="text-muted">
+                Fai crescere il tuo business migliorando il tuo Marketing Online
+              </p>
+              <Button>
+                <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
+                Contattami ora
+              </Button>
             </div>
           </div>
         </section>
