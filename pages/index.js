@@ -53,37 +53,67 @@ export default function Home() {
     );
   };
 
+  const FaqToggle = ({ children, eventKey, callback }) => {
+    const currentEventKey = useContext(AccordionContext);
+    const decoratedOnClick = useAccordionToggle(
+      eventKey,
+      () => callback && callback(eventKey)
+    );
+
+    const isCurrentEventKey = currentEventKey === eventKey;
+
+    const getIcon = useCallback(() => {
+      return isCurrentEventKey ? faMinus : faPlus;
+    }, [isCurrentEventKey]);
+
+    const isCollapsed = useCallback(() => {
+      return !isCurrentEventKey ? "collapsed" : "";
+    }, [isCurrentEventKey]);
+
+    return (
+      <div onClick={decoratedOnClick} className={`faq-toggle position-relative mb-3 ${isCollapsed()}`}>
+        {children}
+        <FontAwesomeIcon icon={getIcon()} className="indicator"/>
+      </div>
+    );
+  };
+
   return (
     <>
       <Head>
         <title>Create Next App</title>
       </Head>
-      <Navbar
-        expand="lg"
-        variant="dark"
-        sticky="top"
-        className="container py-4"
-      >
-        <Navbar.Brand href="#home" className="font-weight-bolder">
-          Paolo Imperiale
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="#home">Chi sono</Nav.Link>
-            <Nav.Link href="#link">Servizi di consulenza</Nav.Link>
-            <Nav.Link href="#link">Clienti</Nav.Link>
-            <Nav.Link href="#link">Certificazioni</Nav.Link>
-            <Nav.Link href="#link">Contatti</Nav.Link>
-          </Nav>
-          <Button>
-            <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
-            Call to action
-          </Button>
-        </Navbar.Collapse>
-      </Navbar>
+      <header className="fixed-top">
+        <Navbar
+          expand="lg"
+          variant="dark"
+          fixed="top"
+          className="container py-4"
+        >
+          <Navbar.Brand href="#home" className="font-weight-bolder">
+            Paolo Imperiale
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="#home">Chi sono</Nav.Link>
+              <Nav.Link href="#link">Servizi di consulenza</Nav.Link>
+              <Nav.Link href="#link">Clienti</Nav.Link>
+              <Nav.Link href="#link">Certificazioni</Nav.Link>
+              <Nav.Link href="#link">Contatti</Nav.Link>
+            </Nav>
+            <Button>
+              <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
+              Call to action
+            </Button>
+          </Navbar.Collapse>
+        </Navbar>
+      </header>
       <main>
-        <section style={{ backgroundColor: "#37384e" }} className="pt-lg-5">
+        <section
+          style={{ backgroundColor: "#37384e" }}
+          className="pt-lg-5 mt-lg-5"
+        >
           <div className="container-fluid">
             <div className="row">
               <div className="col-lg-6 d-flex justify-content-end">
@@ -177,7 +207,7 @@ export default function Home() {
                 <div className="mx-auto" style={{ maxWidth: "610px" }}>
                   <div className="row align-items-center">
                     <div className="col-sm-6">
-                      <Accordion defaultActiveKey="0">
+                      <Accordion>
                         <div className="card bg-light shadow-lg rounded-lg p-4 mb-4 text-center text-sm-left">
                           <CustomToggle eventKey="0">
                             <img
@@ -263,7 +293,7 @@ export default function Home() {
                       </Accordion>
                     </div>
                     <div className="col-sm-6">
-                      <Accordion>
+                      <Accordion defaultActiveKey="4">
                         <div className="card bg-light shadow-lg rounded-lg p-4 mb-4 text-center text-sm-left">
                           <CustomToggle eventKey="3">
                             <img
@@ -322,6 +352,132 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div className="container pt-5 pb-4 py-md-6 py-lg-7">
+            <div className="text-center mb-5 pt-3 pt-lg-4">
+              <h2 className="h1 mb-4">
+                Aree
+                <span className="bg-faded-primary rounded text-primary px-3 py-2">
+                  Operative
+                </span>
+              </h2>
+              <p className="text-muted">Scopri a quale dei vertical di mercato in cui opero appartiene la tua azienda</p>
+            </div>
+            <div className="row">
+              <div className="col-lg-6">
+                <Accordion defaultActiveKey="1">
+                  <FaqToggle eventKey="0">
+                    <h3 className="h5 title">
+                      Aziende B2C e Studi Professionali
+                    </h3>
+                    <Accordion.Collapse eventKey="0">
+                      <p className="font-size-md description">
+                        In questa categoria rientrano tutte quelle aziende e
+                        studi professionali che non “vendono” online prodotti o
+                        servizi ma desiderano ricevere dai visitatori del sito
+                        richieste di informazioni e/o preventivi (via form o
+                        telefono), iscrizioni a newsletters, etc. In questo
+                        particolare segmento particolare attenzione è rivolta al
+                        costo di acquisizione di un “lead”, e alla sua “qualità”
+                        (propensione a convertirsi da richiesta a conferimento
+                        di servizi). Nel corso degli anni ho generato importanti
+                        risultati nei servizi alla persona (catena di dentisti
+                        nazionale), per un importante gruppo di residenze
+                        sanitarie assistite, e studi professionali.
+                      </p>
+                    </Accordion.Collapse>
+                  </FaqToggle>
+                  <FaqToggle eventKey="1">
+                    <h3 className="h5 title">
+                      E-commerce, vendite online
+                    </h3>
+                    <Accordion.Collapse eventKey="1">
+                      <p className="font-size-md description">
+                        Nel segmento e-commerce (vendite dirette online) ho
+                        maturato esperienze per prodotti di largo consumo (B2C)
+                        e prodotti rivolti ad aziende (B2B). In questo comparto
+                        particolare attenzione viene rivolta al tracciamento e
+                        misurazione del “negozio” (enhanced ecommerce tracking)
+                        e quindi del ritorno dell’investimento online.
+                      </p>
+                    </Accordion.Collapse>
+                  </FaqToggle>
+                  <FaqToggle eventKey="2">
+                    <h3 className="h5 title">
+                      Aziende B2B e SAAS (software as a service)
+                    </h3>
+                    <Accordion.Collapse eventKey="2">
+                      <p className="font-size-md description">
+                        Nel segmento B2B e Saas ho seguito e seguo tutt’ora
+                        importanti clienti operanti nel settore Eventi e
+                        Congressi, vendita e noleggio Containers e software as a
+                        service. Per queste tipologie di clienti la misurazione
+                        della vendita “diretta” è più complessa perchè il ciclo
+                        di vendita nel canale aziendale può richiedere tempi
+                        lunghi e coinvolgere più stake-holders.
+                      </p>
+                    </Accordion.Collapse>
+                  </FaqToggle>
+                  <FaqToggle eventKey="3">
+                    <h3 className="h5 title">
+                      Agenzie e Sviluppo Web
+                    </h3>
+                    <Accordion.Collapse eventKey="3">
+                      <p className="font-size-md description">
+                        Molte agenzie di sviluppo siti non dispongono nel loro
+                        staff di professionisti specializzati o risorse dedicate
+                        alla gestione del marketing digitale dei loro clienti.
+                        Offro alle agenzie la possibilità di gestire il loro
+                        intero centro clienti (o solo di alcuni account compresi
+                        in essi).
+                      </p>
+                    </Accordion.Collapse>
+                  </FaqToggle>
+                  <FaqToggle eventKey="4">
+                    <h3 className="h5 title">
+                      Travels, Hotels
+                    </h3>
+                    <Accordion.Collapse eventKey="4">
+                      <p className="font-size-md description">
+                        Il travel è uno dei mercati online più competitivi sui
+                        motori di ricerca, per la presenza di un elevato numero
+                        di operatori e players mondiali come le OTA’s (Booking,
+                        Expedia etc.). La crisi del Covid-19 trasformerà
+                        radicalmente l’offerta ed al tempo stesso la domanda dei
+                        servizi alberghieri e delle vacanze. Attraverso gli
+                        strumenti digitali è possibile scoprire il nuovo
+                        “customer journey” del cliente, individuare la
+                        comunicazione più efficace, ricalibrare il budget e il
+                        mix dei canali, e/o riposizionare l’offerta.
+                      </p>
+                    </Accordion.Collapse>
+                  </FaqToggle>
+                  <FaqToggle eventKey="5">
+                    <h3 className="h5 title">
+                      Onlus e No-Profit (Google Grants)
+                    </h3>
+                    <Accordion.Collapse eventKey="5">
+                      <p className="font-size-md description">
+                        Google supporta le organizzazioni no-profit e Onlus con
+                        un programma dedicato chiamato Google Grants. Una volta
+                        approvata la domanda, il programma prevede
+                        l’assegnazione di 10’000USD mensili di pubblicità
+                        gratuita da pianificare sul motore di ricerca. Google
+                        richiede che l’attività pubblicitaria avviata con il
+                        Grant risponda a determinati e stringenti requisiti di
+                        qualità di gestione pena la sospensione del supporto.
+                        Posso aiutare la vostra organizzazione no-profit/Onlus a
+                        presentare la domanda per il Google Grants e quindi la
+                        sua quotidiana gestione.
+                      </p>
+                    </Accordion.Collapse>
+                  </FaqToggle>
+                </Accordion>
+              </div>
+              <div className="col-lg-6"></div>
             </div>
           </div>
         </section>

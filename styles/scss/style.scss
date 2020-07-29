@@ -7,7 +7,7 @@ html * {
 }
 
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .cs-shape {
@@ -17,19 +17,54 @@ body {
   }
 }
 
-.accordion .card{
+.accordion .card {
   cursor: pointer;
 }
 
-.indicator{
+.indicator {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-.bg-shape{
+.bg-shape {
   background-image: url("../../public/bg-shape.svg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.faq-toggle {
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid rgba(118, 109, 244, 0.35);
+  border-radius: 1rem;
+  box-shadow: 0.1875rem 0.1875rem 0.625rem -0.125rem rgba(0, 0, 0, 0.09);
+
+  &.collapsed {
+    border: 1px solid transparent;
+    .title {
+      color: inherit;
+      &:hover {
+        color: #766df4;
+      }
+    }
+  }
+
+  .title {
+    margin-bottom: 0;
+    color: #766df4;
+    text-decoration: none;
+    display: block;
+    padding: 1.09375rem 1.5rem;
+  }
+  .description {
+    font-size: 15px;
+    padding: 1.5rem;
+    padding-top: 0;
+  }
+  .indicator {
+    top: 21px;
+    right: 21px;
+  }
 }
