@@ -18,6 +18,7 @@ import {
   faMinus,
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useCallback } from "react";
+import { urlObjectKeys } from "next/dist/next-server/lib/utils";
 
 const getContents = () => {
   fetch("http://localhost:1337/contents?page.name=home")
@@ -157,7 +158,7 @@ export default function Home() {
                 Consulente Certificato Google Partner e Bing Ads
               </p>
             </div>
-            <div className="row">
+            <div className="row align-items-center">
               <div className="col-lg-4 col-md-5 text-center text-md-left mb-5 mb-md-0">
                 <h2 className="mb-3">Al tuo servizio</h2>
                 <p className="text-muted mb-4 pb-2">
@@ -172,7 +173,7 @@ export default function Home() {
                   Call to action
                 </a>
               </div>
-              <div className="col-lg-8 col-md-7 bg-position-center bg-no-repeat">
+              <div className="bg-shape col-lg-8 col-md-7">
                 <div className="mx-auto" style={{ maxWidth: "610px" }}>
                   <div className="row align-items-center">
                     <div className="col-sm-6">

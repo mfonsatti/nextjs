@@ -26,3 +26,10 @@ body {
   top: 0;
   right: 0;
 }
+
+.bg-shape{
+  background-image: url("../../public/bg-shape.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
