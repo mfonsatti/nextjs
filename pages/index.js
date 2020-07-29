@@ -129,7 +129,7 @@ export default function Home() {
       <main>
         <section
           style={{ backgroundColor: "#37384e" }}
-          className="pt-lg-5 mt-lg-5"
+          className="pt-5 mt-5"
         >
           <div className="container-fluid">
             <div className="row">
@@ -178,7 +178,7 @@ export default function Home() {
               <div className="col-lg-6">
                 <img
                   src="/paolo-imperiale.jpg"
-                  className="selfie rounded-circle"
+                  className="selfie rounded-circle img-fluid"
                 />
               </div>
             </div>
