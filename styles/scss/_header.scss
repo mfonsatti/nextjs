@@ -1,9 +1,19 @@
-header {
+header,
+footer {
   background-color: #37384e;
   height: 92px;
   .navbar {
     .nav-link {
       font-weight: 500;
+    }
+  }
+}
+
+footer {
+  .navbar {
+    align-items: baseline;
+    .nav-link {
+      font-size: 12px;
     }
   }
 }

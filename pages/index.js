@@ -16,6 +16,7 @@ import {
   faArrowDown,
   faPlus,
   faMinus,
+  faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useCallback } from "react";
 import { urlObjectKeys } from "next/dist/next-server/lib/utils";
@@ -81,12 +82,25 @@ export default function Home() {
     );
   };
 
+  const ScrollToBtn = () => {
+    const handleClick = useCallback(() => {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }, []);
+    return (
+      <Button variant="outline-primary" onClick={handleClick}>
+        <FontAwesomeIcon icon={faArrowUp} className="mr-2" />
+        Top
+      </Button>
+    );
+  };
+
   return (
     <>
       <Head>
         <title>Create Next App</title>
       </Head>
-      <header className="fixed-top">
+      <header id="header" className="fixed-top">
         <Navbar
           expand="lg"
           variant="dark"
@@ -503,6 +517,20 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <footer>
+        <Navbar expand="lg" variant="dark" className="container py-4">
+          <Navbar.Brand href="#home" className="font-weight-bolder">
+            Paolo Imperiale
+          </Navbar.Brand>
+          <Nav className="mr-auto">
+            <Nav.Link href="#home">
+              &copy; All rights reserved. Made by Matteo Fonsatti
+            </Nav.Link>
+            <Nav.Link href="#link">P.IVA 0123456789</Nav.Link>
+          </Nav>
+          <ScrollToBtn />
+        </Navbar>
+      </footer>
     </>
   );
 }
