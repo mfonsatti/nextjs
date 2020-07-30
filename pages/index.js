@@ -1,12 +1,9 @@
 import Head from "next/head";
-import Link from "next/link";
 import {
   Button,
-  na,
   Navbar,
   Nav,
   Accordion,
-  Card,
   useAccordionToggle,
   AccordionContext,
 } from "react-bootstrap";
@@ -17,9 +14,10 @@ import {
   faPlus,
   faMinus,
   faArrowUp,
+  faTimes,
+  faLayerGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useCallback } from "react";
-import { urlObjectKeys } from "next/dist/next-server/lib/utils";
 
 const getContents = () => {
   fetch("http://localhost:1337/contents?page.name=home")
@@ -110,19 +108,23 @@ export default function Home() {
           <Navbar.Brand href="#home" className="font-weight-bolder">
             Paolo Imperiale
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle as={Button} bsPrefix="menu-mobile-open">
+            <FontAwesomeIcon icon={faLayerGroup} className="mr-2" /> Menu
+          </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
+            <Nav>
+              <Navbar.Brand href="#home" className="font-weight-bolder">
+                Paolo Imperiale
+              </Navbar.Brand>
               <Nav.Link href="#home">Chi sono</Nav.Link>
               <Nav.Link href="#link">Servizi di consulenza</Nav.Link>
               <Nav.Link href="#link">Clienti</Nav.Link>
               <Nav.Link href="#link">Certificazioni</Nav.Link>
               <Nav.Link href="#link">Contatti</Nav.Link>
             </Nav>
-            <Button>
-              <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
-              Call to action
-            </Button>
+            <Navbar.Toggle as={Button} bsPrefix="menu-mobile-close">
+              <FontAwesomeIcon icon={faTimes} />
+            </Navbar.Toggle>
           </Navbar.Collapse>
         </Navbar>
       </header>
