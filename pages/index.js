@@ -103,7 +103,7 @@ export default function Home() {
           expand="lg"
           variant="dark"
           fixed="top"
-          className="container-lg py-4"
+          className="container-lg py-md-4"
         >
           <Navbar.Brand href="#home" className="avatar font-weight-bolder">
             <img

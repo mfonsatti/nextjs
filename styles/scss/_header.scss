@@ -1,7 +1,10 @@
 header,
 footer {
   background-color: #37384e;
-  height: 92px;
+  height: 79px;
+  @media screen and (min-width: 768px) {
+    height: 92px;
+  }
   .navbar {
     .nav-link {
       font-weight: 500;
