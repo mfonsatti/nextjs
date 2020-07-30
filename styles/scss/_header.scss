@@ -10,6 +10,11 @@ footer {
 }
 
 header {
+  .avatar {
+    width: 50px;
+    display: flex;
+    align-items: center;
+  }
   .navbar-collapse {
     @media screen and (max-width: 992px) {
       display: flex;
