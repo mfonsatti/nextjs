@@ -103,17 +103,17 @@ export default function Home() {
           expand="lg"
           variant="dark"
           fixed="top"
-          className="container py-4"
+          className="container-lg py-4"
         >
           <Navbar.Brand href="#home" className="font-weight-bolder">
             Paolo Imperiale
           </Navbar.Brand>
-          <Navbar.Toggle as={Button} bsPrefix="menu-mobile-open">
+          <Navbar.Toggle as={Button} bsPrefix="menu-mobile-open d-lg-none">
             <FontAwesomeIcon icon={faLayerGroup} className="mr-2" /> Menu
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
-              <Navbar.Brand href="#home" className="font-weight-bolder">
+              <Navbar.Brand href="#home" className="font-weight-bolder d-lg-none">
                 Paolo Imperiale
               </Navbar.Brand>
               <Nav.Link href="#home">Chi sono</Nav.Link>
@@ -122,7 +122,11 @@ export default function Home() {
               <Nav.Link href="#link">Certificazioni</Nav.Link>
               <Nav.Link href="#link">Contatti</Nav.Link>
             </Nav>
-            <Navbar.Toggle as={Button} bsPrefix="menu-mobile-close">
+            <Button className="ml-auto d-none d-lg-block">
+              <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
+              Call to action
+            </Button>
+            <Navbar.Toggle as={Button} bsPrefix="menu-mobile-close d-lg-none">
               <FontAwesomeIcon icon={faTimes} />
             </Navbar.Toggle>
           </Navbar.Collapse>
@@ -130,9 +134,9 @@ export default function Home() {
       </header>
       <main>
         <section style={{ backgroundColor: "#37384e" }} className="pt-5 mt-5">
-          <div className="container-fluid">
+          <div className="container-lg">
             <div className="row">
-              <div className="col-lg-6 d-flex justify-content-end">
+              <div className="col-md-6">
                 <div className="mr-lg-5" style={{ maxWidth: "495px" }}>
                   <h1 className="display-4 text-light pb-2">
                     <span className="font-weight-light">
@@ -174,7 +178,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-6">
+              <div className="col-md-6">
                 <img
                   src="/paolo-imperiale.jpg"
                   className="selfie rounded-circle img-fluid"
@@ -192,7 +196,7 @@ export default function Home() {
           </div>
         </section>
         <section className="pt-5 mt-5">
-          <div className="col-md-5 mx-auto text-center mb-5 pt-3 pt-lg-4">
+          <div className="col-lg-5 mx-auto text-center mb-5 pt-3 pt-lg-4">
             <h2 className="h1 mb-4">
               Garanzia{" "}
               <span className="bg-faded-primary rounded text-primary px-3 py-2">
@@ -220,7 +224,7 @@ export default function Home() {
             </div>
             <div className="row">
               <div className="col-8 offset-4">
-                <div className="microsoft-ads bg-white p-5">
+                <div className="microsoft-ads bg-white p-4 p-md-5">
                   <img src="MicrosoftAds.svg" className="img-fluid" />
                 </div>
               </div>
@@ -230,7 +234,7 @@ export default function Home() {
         <section className="pt-5 mt-5">
           <div className="container">
             <div className="row align-items-center">
-              <div className="col-lg-4 col-md-5 text-center text-md-left mb-5 mb-md-0">
+              <div className="col-lg-4 text-center text-lg-left mb-5">
                 <h2 className="mb-3">Al tuo servizio</h2>
                 <p className="text-muted mb-4 pb-2">
                   Esperto professionista in marketing digitale, specializzato in
@@ -244,7 +248,7 @@ export default function Home() {
                   Call to action
                 </a>
               </div>
-              <div className="bg-shape col-lg-8 col-md-7">
+              <div className="bg-shape col-lg-8 ">
                 <div className="mx-auto" style={{ maxWidth: "610px" }}>
                   <div className="row align-items-center">
                     <div className="col-sm-6">
