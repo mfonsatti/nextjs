@@ -425,7 +425,7 @@ export default function Home() {
               <div className="col-lg-6">
                 <Accordion defaultActiveKey="1">
                   <FaqToggle eventKey="0">
-                    <h3 className="h5 title">
+                    <h3 className="h5 pr-5 title">
                       Aziende B2C e Studi Professionali
                     </h3>
                     <Accordion.Collapse eventKey="0">
@@ -446,7 +446,7 @@ export default function Home() {
                     </Accordion.Collapse>
                   </FaqToggle>
                   <FaqToggle eventKey="1">
-                    <h3 className="h5 title">E-commerce, vendite online</h3>
+                    <h3 className="h5 pr-5 title">E-commerce, vendite online</h3>
                     <Accordion.Collapse eventKey="1">
                       <p className="font-size-md description">
                         Nel segmento e-commerce (vendite dirette online) ho
@@ -459,7 +459,7 @@ export default function Home() {
                     </Accordion.Collapse>
                   </FaqToggle>
                   <FaqToggle eventKey="2">
-                    <h3 className="h5 title">
+                    <h3 className="h5 pr-5 title">
                       Aziende B2B e SAAS (software as a service)
                     </h3>
                     <Accordion.Collapse eventKey="2">
@@ -475,7 +475,7 @@ export default function Home() {
                     </Accordion.Collapse>
                   </FaqToggle>
                   <FaqToggle eventKey="3">
-                    <h3 className="h5 title">Agenzie e Sviluppo Web</h3>
+                    <h3 className="h5 pr-5 title">Agenzie e Sviluppo Web</h3>
                     <Accordion.Collapse eventKey="3">
                       <p className="font-size-md description">
                         Molte agenzie di sviluppo siti non dispongono nel loro
@@ -488,7 +488,7 @@ export default function Home() {
                     </Accordion.Collapse>
                   </FaqToggle>
                   <FaqToggle eventKey="4">
-                    <h3 className="h5 title">Travels, Hotels</h3>
+                    <h3 className="h5 pr-5 title">Travels, Hotels</h3>
                     <Accordion.Collapse eventKey="4">
                       <p className="font-size-md description">
                         Il travel è uno dei mercati online più competitivi sui
@@ -505,7 +505,7 @@ export default function Home() {
                     </Accordion.Collapse>
                   </FaqToggle>
                   <FaqToggle eventKey="5">
-                    <h3 className="h5 title">
+                    <h3 className="h5 pr-5 title">
                       Onlus e No-Profit (Google Grants)
                     </h3>
                     <Accordion.Collapse eventKey="5">
