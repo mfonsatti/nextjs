@@ -127,10 +127,7 @@ export default function Home() {
         </Navbar>
       </header>
       <main>
-        <section
-          style={{ backgroundColor: "#37384e" }}
-          className="pt-5 mt-5"
-        >
+        <section style={{ backgroundColor: "#37384e" }} className="pt-5 mt-5">
           <div className="container-fluid">
             <div className="row">
               <div className="col-lg-6 d-flex justify-content-end">
@@ -192,19 +189,44 @@ export default function Home() {
             </svg>
           </div>
         </section>
-        <section>
-          <div className="container pt-5 pb-4 py-md-6 py-lg-7">
-            <div className="text-center mb-5 pt-3 pt-lg-4">
-              <h2 className="h1 mb-4">
-                Garanzia{" "}
-                <span className="bg-faded-primary rounded text-primary px-3 py-2">
-                  Certificata
-                </span>
-              </h2>
-              <p className="text-muted">
-                Consulente Certificato Google Partner e Bing Ads
-              </p>
+        <section className="pt-5 mt-5">
+          <div className="col-md-5 mx-auto text-center mb-5 pt-3 pt-lg-4">
+            <h2 className="h1 mb-4">
+              Garanzia{" "}
+              <span className="bg-faded-primary rounded text-primary px-3 py-2">
+                Certificata
+              </span>
+            </h2>
+            <p className="text-muted">
+              Consulente Certificato Google Partner e Microsoft Advertising.
+              Esperto professionista in marketing digitale, specializzato in
+              Google Analytics e gestione campagne Google Ads e Bing Ads.
+              Delineo ed implemento efficaci strategie ‘data driven‘ per
+              convertire le visite al vostro sito in vendite o contatti utili al
+              vostro business.
+            </p>
+            <Button>
+              <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
+              Call to action
+            </Button>
+          </div>
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-8">
+                <img src="googlePartner.svg" className="img-fluid" />
+              </div>
             </div>
+            <div className="row">
+              <div className="col-8 offset-4">
+                <div className="microsoft-ads bg-white p-5">
+                  <img src="MicrosoftAds.svg" className="img-fluid" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="pt-5 mt-5">
+          <div className="container">
             <div className="row align-items-center">
               <div className="col-lg-4 col-md-5 text-center text-md-left mb-5 mb-md-0">
                 <h2 className="mb-3">Al tuo servizio</h2>
@@ -372,7 +394,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="bg-white">
+        <section className="pt-5 mt-5 bg-white">
           <div className="container pt-5 pb-4 py-md-6 py-lg-7">
             <div className="text-center mb-5 pt-3 pt-lg-4">
               <h2 className="h1 mb-4">
