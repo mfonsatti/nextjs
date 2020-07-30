@@ -105,7 +105,11 @@ export default function Home() {
           fixed="top"
           className="container-lg py-4"
         >
-          <Navbar.Brand href="#home" className="font-weight-bolder">
+          <Navbar.Brand href="#home" className="avatar font-weight-bolder">
+            <img
+              src="/paolo-imperiale.jpg"
+              className="rounded-circle img-fluid d-md-none mr-2"
+            />
             Paolo Imperiale
           </Navbar.Brand>
           <Navbar.Toggle as={Button} bsPrefix="menu-mobile-open d-lg-none">
@@ -113,7 +117,10 @@ export default function Home() {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
-              <Navbar.Brand href="#home" className="font-weight-bolder d-lg-none">
+              <Navbar.Brand
+                href="#home"
+                className="font-weight-bolder d-lg-none"
+              >
                 Paolo Imperiale
               </Navbar.Brand>
               <Nav.Link href="#home">Chi sono</Nav.Link>
@@ -134,7 +141,7 @@ export default function Home() {
       </header>
       <main>
         <section style={{ backgroundColor: "#37384e" }} className="pt-5 mt-5">
-          <div className="container-lg">
+          <div className="container-lg pb-5 pb-md-0">
             <div className="row">
               <div className="col-md-6">
                 <div className="mr-lg-5" style={{ maxWidth: "495px" }}>
@@ -181,7 +188,7 @@ export default function Home() {
               <div className="col-md-6">
                 <img
                   src="/paolo-imperiale.jpg"
-                  className="selfie rounded-circle img-fluid"
+                  className="selfie rounded-circle img-fluid d-none d-md-block"
                 />
               </div>
             </div>
@@ -248,7 +255,7 @@ export default function Home() {
                   Call to action
                 </a>
               </div>
-              <div className="bg-shape col-lg-8 ">
+              <div className="bg-shape col-lg-8">
                 <div className="mx-auto" style={{ maxWidth: "610px" }}>
                   <div className="row align-items-center">
                     <div className="col-sm-6">
