@@ -6,6 +6,7 @@ import {
   Accordion,
   useAccordionToggle,
   AccordionContext,
+  Carousel,
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,6 +18,9 @@ import {
   faTimes,
   faLayerGroup,
   faTerminal,
+  faArrowRight,
+  faArrowLeft,
+  faQuoteLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useCallback } from "react";
 
@@ -98,12 +102,24 @@ export default function Home() {
     );
   };
 
+  const CarouselPrevIco = (
+    <Button size="sm" variant="outline-primary">
+      <FontAwesomeIcon icon={faArrowLeft} />
+    </Button>
+  );
+
+  const CarouselNextIco = (
+    <Button size="sm" variant="outline-primary">
+      <FontAwesomeIcon icon={faArrowRight} />
+    </Button>
+  );
+
   return (
     <>
       <Head>
         <title>Create Next App</title>
       </Head>
-      <header id="header" className="fixed-top">
+      <header id="header" className="header fixed-top">
         <Navbar
           expand="lg"
           variant="dark"
@@ -166,15 +182,15 @@ export default function Home() {
                     Call to action
                   </Button>
                   {/* <hr className="hr-light mb-5" /> */}
-                  <div class="font-size-sm mb-2 text-white">
-                    Esperienza
-                  </div>
+                  <div class="font-size-sm mb-2 text-white">Esperienza</div>
                   <div className="progress mb-3">
                     <div
                       className="progress-bar font-weight-medium bg-success"
                       role="progressbar"
                       style={{ width: "65%" }}
-                    >25 anni</div>
+                    >
+                      25 anni
+                    </div>
                   </div>
 
                   <div class="font-size-sm mb-2 text-white">
@@ -185,7 +201,9 @@ export default function Home() {
                       className="progress-bar font-weight-medium bg-warning"
                       role="progressbar"
                       style={{ width: "40%" }}
-                    >10 anni</div>
+                    >
+                      10 anni
+                    </div>
                   </div>
 
                   <div class="font-size-sm mb-2 text-white">
@@ -196,31 +214,10 @@ export default function Home() {
                       className="progress-bar font-weight-medium bg-info"
                       role="progressbar"
                       style={{ width: "55%" }}
-                    >> 500.000&euro;</div>
+                    >
+                      &gt; 500.000&euro;
+                    </div>
                   </div>
-                  {/* <div className="row text-center">
-                    <div className="col-sm-4 mb-4 mb-sm-0">
-                      <div className="h1 text-light mb-1">25</div>
-                      <div className="h5 text-light font-weight-normal opacity-70 mb-2">
-                        Anni di esperienza
-                      </div>
-                    </div>
-                    <div className="col-sm-4 mb-4 mb-sm-0">
-                      <div className="h1 text-light mb-1">44</div>
-                      <div className="h5 text-light font-weight-normal opacity-70 mb-1">
-                        Certificazioni conseguite
-                      </div>
-                      <span className="badge badge-pill badge-success">
-                        More coming
-                      </span>
-                    </div>
-                    <div className="col-sm-4">
-                      <div className="h1 text-light mb-1">&gt; 500k</div>
-                      <div className="h5 text-light font-weight-normal opacity-70 mb-1">
-                        Budget gestito nel 2020
-                      </div>
-                    </div>
-                  </div> */}
                 </div>
               </div>
               <div className="col-md-6">
@@ -572,6 +569,161 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <section className="pt-5 pb-5 bg-white">
+          <div className="container">
+            <div className="text-center mb-5 pt-3 pt-lg-4">
+              <h2 className="h1 mb-4">
+                Trusted{" "}
+                <span className="bg-faded-primary rounded text-primary px-3 py-2">
+                  Reviews
+                </span>
+              </h2>
+              <p className="text-muted">
+                Un ringraziamento a tutti voi, lorem ipsum dolor sit amet
+              </p>
+            </div>
+            <div className="reviews col-12 col-md-6 mx-auto">
+              <div className="card">
+                <div className="card-body">
+                  <Carousel
+                    prevIcon={CarouselPrevIco}
+                    nextIcon={CarouselNextIco}
+                    interval={null}
+                    indicators={false}
+                    wrap={false}
+                  >
+                    <Carousel.Item className="h-100">
+                      <blockquote className="blockquote font-size-sm">
+                        <FontAwesomeIcon icon={faQuoteLeft} />
+                        <p className="mb-0">
+                          Paolo Imperiale cura le nostre campagne Google Ads dal
+                          2014 – e penso che questo rappresenti già un segnale
+                          di piena soddisfazione per il lavoro che svolge per la
+                          nostra azienda. Un professionista molto preparato che
+                          conosce bene le dinamiche e la relativa ottimizzazione
+                          di una campagna Google Ads. Sempre attento ai nuovi
+                          trend, è capace di anticipare le continue evoluzioni
+                          della piattaforma, proponendo di volta in volta gli
+                          aggiustamenti e le modifiche necessarie a raggiungere
+                          il miglior ritorno sull’investimento. Preziosi i suoi
+                          consigli e supporto per ottimizzare il nostro
+                          ecommerce. Un consulente serio, competente e
+                          scrupoloso, assolutamente consigliato a chi è alla
+                          ricerca di un professionista a cui affidare i propri
+                          investimenti online”.
+                        </p>
+                      </blockquote>
+                      <footer className="font-size-sm pb-4">
+                        <div className="media align-items-center border-top mb-n2 pt-3">
+                          <img
+                            className="rounded-circle"
+                            src="david-morini.jpeg"
+                            alt="Ciro Corbara"
+                            width="50"
+                          />
+                          <div className="d-flex flex-column pl-2">
+                            <p className="mb-0 font-weight-bold">
+                              Ciro Corbara
+                            </p>
+                            <p className="mb-0">Corbara - Titolare</p>
+                          </div>
+                        </div>
+                      </footer>
+                    </Carousel.Item>
+                    <Carousel.Item className="h-100">
+                      <blockquote className="blockquote font-size-sm">
+                        <FontAwesomeIcon icon={faQuoteLeft} />
+                        <p className="mb-0">
+                          Grande professionalità e precisione, le nostre
+                          strategie marketing hanno dato da subito ottimi
+                          risultati attraverso la consulenza di Paolo Imperiale.
+                        </p>
+                      </blockquote>
+                      <footer className="font-size-sm pb-4">
+                        <div className="media align-items-center border-top mb-n2 pt-3">
+                          <img
+                            className="rounded-circle"
+                            src="david-morini.jpeg"
+                            alt="David Morini"
+                            width="50"
+                          />
+                          <div className="d-flex flex-column pl-2">
+                            <div className="mb-0 font-weight-bold">
+                              David Morini
+                            </div>
+                            <p className="mb-0">Studio Pelizzari - CEO</p>
+                          </div>
+                        </div>
+                      </footer>
+                    </Carousel.Item>
+                    <Carousel.Item className="h-100">
+                      <blockquote className="blockquote font-size-sm">
+                        <FontAwesomeIcon icon={faQuoteLeft} />
+                        <p className="mb-0">
+                          Visione, Competenza, Conoscenza, Performance. Queste
+                          le 4 keywords che identificano in modo preciso la
+                          sofisticata essenza di Paolo Imperiale: un
+                          “professionista digitale” estremamente evoluto….una
+                          garanzia.
+                        </p>
+                      </blockquote>
+                      <footer className="font-size-sm pb-4">
+                        <div className="media align-items-center border-top mb-n2 pt-3">
+                          <img
+                            className="rounded-circle"
+                            src="david-morini.jpeg"
+                            alt="Gianluca Como"
+                            width="50"
+                          />
+                          <div className="d-flex flex-column pl-2">
+                            <div className="mb-0 font-weight-bold">
+                              Giulio Bonizzato
+                            </div>
+                            <p className="mb-0">
+                              Benacus Srl - Hotel Parchi del Garda - CEO
+                            </p>
+                          </div>
+                        </div>
+                      </footer>
+                    </Carousel.Item>
+                    <Carousel.Item className="h-100">
+                      <blockquote className="blockquote font-size-sm">
+                        <FontAwesomeIcon icon={faQuoteLeft} />
+                        <p className="mb-0">
+                          Paolo Imperiale è un professionista serio ed
+                          affidabile, con una notevole capacità di gestire le
+                          nostre campagne pubblicitarie e di massimizzarne i
+                          risultati. La sua esperienza e professionalità lo
+                          rendono un ottimo consulente al quale poter affidare
+                          la gestione dei propri investimenti pubblicitari
+                          online
+                        </p>
+                      </blockquote>
+                      <footer className="font-size-sm pb-4">
+                        <div className="media align-items-center border-top mb-n2 pt-3">
+                          <img
+                            className="rounded-circle"
+                            src="david-morini.jpeg"
+                            alt="Gianluca Como"
+                            width="50"
+                          />
+                          <div className="d-flex flex-column pl-2">
+                            <div className="mb-0 font-weight-bold">
+                              Gianluca Como
+                            </div>
+                            <p className="mb-0">
+                              Genoa Logistic Services GLS - CEO
+                            </p>
+                          </div>
+                        </div>
+                      </footer>
+                    </Carousel.Item>
+                  </Carousel>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <section>
           <div className="container pt-5 pb-4 py-md-6 py-lg-7">
             <div className="text-center mb-5 pt-3 pt-lg-4">
@@ -592,7 +744,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer>
+      <footer className="footer">
         <Navbar expand="lg" variant="dark" className="container-lg py-4">
           <Navbar.Brand href="#home" className="font-weight-bolder">
             Paolo Imperiale
