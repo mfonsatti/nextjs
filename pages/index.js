@@ -147,7 +147,7 @@ export default function Home() {
       </header>
       <main>
         <section style={{ backgroundColor: "#37384e" }} className="pt-5 mt-5">
-          <div className="container-lg pb-5 pb-md-0">
+          <div className="container-lg pb-5">
             <div className="row">
               <div className="col-md-6">
                 <div className="mr-lg-5" style={{ maxWidth: "495px" }}>
@@ -165,8 +165,49 @@ export default function Home() {
                     <FontAwesomeIcon icon={faArrowDown} className="mr-2" />
                     Call to action
                   </Button>
-                  <hr className="hr-light mb-5" />
-                  <div className="row">
+                  {/* <hr className="hr-light mb-5" /> */}
+                  <div class="font-size-sm mb-2 text-white">Anni di esperienza</div>
+                  <div className="progress mb-3">
+                    <div
+                      className="progress-bar font-weight-medium bg-success"
+                      role="progressbar"
+                      style={{width: '25%'}}
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                      25
+                    </div>
+                  </div>
+
+                  <div class="font-size-sm mb-2 text-white">Certificazioni conseguite</div>
+                  <div className="progress mb-3">
+                    <div
+                      className="progress-bar font-weight-medium bg-warning"
+                      role="progressbar"
+                      style={{width: '44%'}}
+                      aria-valuenow="44"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                      44
+                    </div>
+                  </div>
+
+                  <div class="font-size-sm mb-2 text-white">Budget gestito nel 2020</div>
+                  <div className="progress mb-3">
+                    <div
+                      className="progress-bar font-weight-medium bg-info"
+                      role="progressbar"
+                      style={{width: '55%'}}
+                      aria-valuenow="55"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                      55k
+                    </div>
+                  </div>
+                  {/* <div className="row text-center">
                     <div className="col-sm-4 mb-4 mb-sm-0">
                       <div className="h1 text-light mb-1">25</div>
                       <div className="h5 text-light font-weight-normal opacity-70 mb-2">
@@ -188,7 +229,7 @@ export default function Home() {
                         Budget gestito nel 2020
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="col-md-6">
@@ -561,18 +602,21 @@ export default function Home() {
         </section>
       </main>
       <footer>
-        <Navbar
-          expand="lg"
-          variant="dark"
-          className="container-lg py-4"
-        >
+        <Navbar expand="lg" variant="dark" className="container-lg py-4">
           <Navbar.Brand href="#home" className="font-weight-bolder">
             Paolo Imperiale
           </Navbar.Brand>
           <Nav className="mr-auto flex-row">
-            <Nav.Link href="#link" className="px-2">P.IVA 0123456789</Nav.Link>
-            <Nav.Link href="#link" className="px-2">Privacy &amp; Cookies</Nav.Link>
-            <Nav.Link href="#link" className="px-2"><FontAwesomeIcon icon={faTerminal} className="mr-1" />Dev</Nav.Link>
+            <Nav.Link href="#link" className="px-2">
+              P.IVA 0123456789
+            </Nav.Link>
+            <Nav.Link href="#link" className="px-2">
+              Privacy &amp; Cookies
+            </Nav.Link>
+            <Nav.Link href="#link" className="px-2">
+              <FontAwesomeIcon icon={faTerminal} className="mr-1" />
+              Dev
+            </Nav.Link>
           </Nav>
           <ScrollToBtn />
         </Navbar>
