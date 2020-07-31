@@ -16,6 +16,7 @@ import {
   faArrowUp,
   faTimes,
   faLayerGroup,
+  faTerminal,
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useCallback } from "react";
 
@@ -86,7 +87,11 @@ export default function Home() {
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }, []);
     return (
-      <Button variant="outline-primary" onClick={handleClick}>
+      <Button
+        variant="outline-primary"
+        onClick={handleClick}
+        className="d-none d-lg-block"
+      >
         <FontAwesomeIcon icon={faArrowUp} className="mr-2" />
         Top
       </Button>
@@ -113,7 +118,8 @@ export default function Home() {
             Paolo Imperiale
           </Navbar.Brand>
           <Navbar.Toggle as={Button} bsPrefix="menu-mobile-open d-lg-none">
-            <FontAwesomeIcon icon={faLayerGroup} className="mr-2" /> Menu
+            <FontAwesomeIcon icon={faLayerGroup} className="mr-2" />
+            <span className="d-none menu-mobile-label">Menu</span>
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
@@ -446,7 +452,9 @@ export default function Home() {
                     </Accordion.Collapse>
                   </FaqToggle>
                   <FaqToggle eventKey="1">
-                    <h3 className="h5 pr-5 title">E-commerce, vendite online</h3>
+                    <h3 className="h5 pr-5 title">
+                      E-commerce, vendite online
+                    </h3>
                     <Accordion.Collapse eventKey="1">
                       <p className="font-size-md description">
                         Nel segmento e-commerce (vendite dirette online) ho
@@ -553,15 +561,18 @@ export default function Home() {
         </section>
       </main>
       <footer>
-        <Navbar expand="lg" variant="dark" className="container py-4">
+        <Navbar
+          expand="lg"
+          variant="dark"
+          className="container-lg py-4"
+        >
           <Navbar.Brand href="#home" className="font-weight-bolder">
             Paolo Imperiale
           </Navbar.Brand>
-          <Nav className="mr-auto">
-            <Nav.Link href="#home">
-              &copy; All rights reserved. Made by Matteo Fonsatti
-            </Nav.Link>
-            <Nav.Link href="#link">P.IVA 0123456789</Nav.Link>
+          <Nav className="mr-auto flex-row">
+            <Nav.Link href="#link" className="px-2">P.IVA 0123456789</Nav.Link>
+            <Nav.Link href="#link" className="px-2">Privacy &amp; Cookies</Nav.Link>
+            <Nav.Link href="#link" className="px-2"><FontAwesomeIcon icon={faTerminal} className="mr-1" />Dev</Nav.Link>
           </Nav>
           <ScrollToBtn />
         </Navbar>
