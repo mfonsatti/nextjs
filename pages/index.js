@@ -591,6 +591,7 @@ export default function Home() {
                     interval={null}
                     indicators={false}
                     wrap={false}
+                    fade={true}
                   >
                     <Carousel.Item className="h-100">
                       <blockquote className="blockquote font-size-sm">
