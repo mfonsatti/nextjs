@@ -166,46 +166,38 @@ export default function Home() {
                     Call to action
                   </Button>
                   {/* <hr className="hr-light mb-5" /> */}
-                  <div class="font-size-sm mb-2 text-white">Anni di esperienza</div>
+                  <div class="font-size-sm mb-2 text-white">
+                    25 Anni di esperienza
+                  </div>
                   <div className="progress mb-3">
                     <div
                       className="progress-bar font-weight-medium bg-success"
                       role="progressbar"
-                      style={{width: '25%'}}
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      25
-                    </div>
+                      style={{ width: "65%" }}
+                    ></div>
                   </div>
 
-                  <div class="font-size-sm mb-2 text-white">Certificazioni conseguite</div>
+                  <div class="font-size-sm mb-2 text-white">
+                    10 anni di certificazioni
+                  </div>
                   <div className="progress mb-3">
                     <div
                       className="progress-bar font-weight-medium bg-warning"
                       role="progressbar"
-                      style={{width: '44%'}}
-                      aria-valuenow="44"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      44
-                    </div>
+                      style={{ width: "40%" }}
+                    ></div>
                   </div>
 
-                  <div class="font-size-sm mb-2 text-white">Budget gestito nel 2020</div>
+                  <div class="font-size-sm mb-2 text-white">
+                    Più di 500.000&euro; di budget pubblicitario nel
+                    2020
+                  </div>
                   <div className="progress mb-3">
                     <div
                       className="progress-bar font-weight-medium bg-info"
                       role="progressbar"
-                      style={{width: '55%'}}
-                      aria-valuenow="55"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      55k
-                    </div>
+                      style={{ width: "55%" }}
+                    ></div>
                   </div>
                   {/* <div className="row text-center">
                     <div className="col-sm-4 mb-4 mb-sm-0">
