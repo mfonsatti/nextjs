@@ -167,37 +167,36 @@ export default function Home() {
                   </Button>
                   {/* <hr className="hr-light mb-5" /> */}
                   <div class="font-size-sm mb-2 text-white">
-                    25 Anni di esperienza
+                    Esperienza
                   </div>
                   <div className="progress mb-3">
                     <div
                       className="progress-bar font-weight-medium bg-success"
                       role="progressbar"
                       style={{ width: "65%" }}
-                    ></div>
+                    >25 anni</div>
                   </div>
 
                   <div class="font-size-sm mb-2 text-white">
-                    10 anni di certificazioni
+                    Certificato Google Partner
                   </div>
                   <div className="progress mb-3">
                     <div
                       className="progress-bar font-weight-medium bg-warning"
                       role="progressbar"
                       style={{ width: "40%" }}
-                    ></div>
+                    >10 anni</div>
                   </div>
 
                   <div class="font-size-sm mb-2 text-white">
-                    Più di 500.000&euro; di budget pubblicitario nel
-                    2020
+                    Budget pubblicitario gestito negli ultimi 12 mesi
                   </div>
                   <div className="progress mb-3">
                     <div
                       className="progress-bar font-weight-medium bg-info"
                       role="progressbar"
                       style={{ width: "55%" }}
-                    ></div>
+                    >> 500.000&euro;</div>
                   </div>
                   {/* <div className="row text-center">
                     <div className="col-sm-4 mb-4 mb-sm-0">
