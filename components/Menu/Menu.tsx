@@ -4,16 +4,13 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Axios from "axios";
-import { GetStaticProps } from "next";
 import React from "react";
 import { Button, Nav, Navbar } from "react-bootstrap";
 import { connect, ConnectedProps } from "react-redux";
 import { getMenu } from "../../selectors/selectors";
-import { State } from "../../types";
+import { State, MenuItem } from "../../types";
 
-const Menu = (props) => {
-  console.log("Menu props", props);
+const Menu = ({ menu }) => {
   return (
     <Navbar
       expand="lg"
@@ -37,11 +34,11 @@ const Menu = (props) => {
           <Navbar.Brand href="#home" className="font-weight-bolder d-lg-none">
             Paolo Imperiale
           </Navbar.Brand>
-          <Nav.Link href="#home">Chi sono</Nav.Link>
-          <Nav.Link href="#link">Servizi di consulenza</Nav.Link>
-          <Nav.Link href="#link">Clienti</Nav.Link>
-          <Nav.Link href="#link">Certificazioni</Nav.Link>
-          <Nav.Link href="#link">Contatti</Nav.Link>
+          {menu.map((menuItem: MenuItem) => (
+            <Nav.Link key={menuItem.id} href={menuItem.url}>
+              {menuItem.label}
+            </Nav.Link>
+          ))}
         </Nav>
         <Button className="ml-auto d-none d-lg-block">
           <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />

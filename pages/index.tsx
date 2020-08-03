@@ -28,29 +28,26 @@ import Axios from "axios";
 import fetch from "node-fetch";
 import { GetStaticProps } from "next";
 import Menu from "../components/Menu/Menu";
-import { setMenu } from "../slice/menuSlice";
-import { useDispatch } from "react-redux";
+import { wrapper } from "../store";
+import ValueProposition from "../components/homepage/ValueProposition/ValueProposition";
 
 const getMenu = () => {
   return Axios.get("http://localhost:1337/menus").then(({ data }) => data);
 };
 
-const getContents = () => {
-  fetch("http://localhost:1337/contents?page.name=home")
-    .then((response) => response.json())
-    .then((contents) => contents);
+const getContent = () => {
+  return Axios.get("http://localhost:1337/homepage").then(({ data }) => data);
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const menu = await getMenu();
-  const dispatch = useDispatch();
-  dispatch({ type: "setMenu", payload: menu });
-  return {
-    props: {
-      menu,
-    },
-  };
-};
+export const getStaticProps = wrapper.getStaticProps(
+  async ({ store, preview }) => {
+    const [menu, content] = await Promise.all([getMenu(), getContent()]);
+    console.log("Homepage content", content)
+    console.log("2. Page.getStaticProps uses the store to dispatch things");
+    store.dispatch({ type: "SET_MENU", payload: menu });
+    store.dispatch({ type: "SET_CONTENT", payload: content });
+  }
+);
 
 export default function Home() {
   const CustomToggle = ({ eventKey, children }: AccordionToggleProps) => {
@@ -139,81 +136,7 @@ export default function Home() {
         <Menu />
       </header>
       <main>
-        <section style={{ backgroundColor: "#37384e" }} className="pt-5 mt-5">
-          <div className="container-lg pb-5">
-            <div className="row">
-              <div className="col-md-6">
-                <div className="mr-lg-5" style={{ maxWidth: "495px" }}>
-                  <h1 className="display-4 text-light pb-2">
-                    <span className="font-weight-light">
-                      Professionista in{" "}
-                    </span>
-                    Marketing Digitale
-                  </h1>
-                  <p className="h4 font-weight-light text-light opacity-70 line-height-base">
-                    Strategia, Formazione, e Trasformazione Digitale per le
-                    Piccole e Medie Imprese
-                  </p>
-                  <Button variant="outline-primary" className="mt-4 mb-5">
-                    <FontAwesomeIcon icon={faArrowDown} className="mr-2" />
-                    Call to action
-                  </Button>
-                  {/* <hr className="hr-light mb-5" /> */}
-                  <div className="font-size-sm mb-2 text-white">Esperienza</div>
-                  <div className="progress mb-3">
-                    <div
-                      className="progress-bar font-weight-medium bg-success"
-                      role="progressbar"
-                      style={{ width: "65%" }}
-                    >
-                      25 anni
-                    </div>
-                  </div>
-
-                  <div className="font-size-sm mb-2 text-white">
-                    Certificato Google Partner
-                  </div>
-                  <div className="progress mb-3">
-                    <div
-                      className="progress-bar font-weight-medium bg-warning"
-                      role="progressbar"
-                      style={{ width: "40%" }}
-                    >
-                      10 anni
-                    </div>
-                  </div>
-
-                  <div className="font-size-sm mb-2 text-white">
-                    Budget pubblicitario gestito negli ultimi 12 mesi
-                  </div>
-                  <div className="progress mb-3">
-                    <div
-                      className="progress-bar font-weight-medium bg-info"
-                      role="progressbar"
-                      style={{ width: "55%" }}
-                    >
-                      &gt; 500.000&euro;
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6">
-                <img
-                  src="/paolo-imperiale.jpg"
-                  className="selfie rounded-circle img-fluid d-none d-md-block"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="cs-shape cs-shape-bottom cs-shape-curve bg-secondary">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
-              <path
-                fill="currentColor"
-                d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z"
-              ></path>
-            </svg>
-          </div>
-        </section>
+        <ValueProposition />
         <section className="pt-5 mt-5">
           <div className="col-lg-5 mx-auto text-center mb-5 pt-3 pt-lg-4">
             <h2 className="h1 mb-4">
