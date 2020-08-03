@@ -7,6 +7,7 @@ import {
   useAccordionToggle,
   AccordionContext,
   Carousel,
+  AccordionToggleProps,
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -23,6 +24,16 @@ import {
   faQuoteLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useCallback } from "react";
+import Axios from "axios";
+import fetch from "node-fetch";
+import { GetStaticProps } from "next";
+import Menu from "../components/Menu/Menu";
+import { setMenu } from "../slice/menuSlice";
+import { useDispatch } from "react-redux";
+
+const getMenu = () => {
+  return Axios.get("http://localhost:1337/menus").then(({ data }) => data);
+};
 
 const getContents = () => {
   fetch("http://localhost:1337/contents?page.name=home")
@@ -30,13 +41,21 @@ const getContents = () => {
     .then((contents) => contents);
 };
 
+export const getStaticProps: GetStaticProps = async () => {
+  const menu = await getMenu();
+  const dispatch = useDispatch();
+  dispatch({ type: "setMenu", payload: menu });
+  return {
+    props: {
+      menu,
+    },
+  };
+};
+
 export default function Home() {
-  const CustomToggle = ({ children, eventKey, callback }) => {
+  const CustomToggle = ({ eventKey, children }: AccordionToggleProps) => {
     const currentEventKey = useContext(AccordionContext);
-    const decoratedOnClick = useAccordionToggle(
-      eventKey,
-      () => callback && callback(eventKey)
-    );
+    const decoratedOnClick = useAccordionToggle(eventKey);
 
     const isCurrentEventKey = currentEventKey === eventKey;
 
@@ -57,12 +76,9 @@ export default function Home() {
     );
   };
 
-  const FaqToggle = ({ children, eventKey, callback }) => {
+  const FaqToggle = ({ eventKey, children }) => {
     const currentEventKey = useContext(AccordionContext);
-    const decoratedOnClick = useAccordionToggle(
-      eventKey,
-      () => callback && callback(eventKey)
-    );
+    const decoratedOnClick = useAccordionToggle(eventKey);
 
     const isCurrentEventKey = currentEventKey === eventKey;
 
@@ -120,46 +136,7 @@ export default function Home() {
         <title>Create Next App</title>
       </Head>
       <header id="header" className="header fixed-top">
-        <Navbar
-          expand="lg"
-          variant="dark"
-          fixed="top"
-          className="container-lg py-md-4"
-        >
-          <Navbar.Brand href="#home" className="avatar font-weight-bolder">
-            <img
-              src="/paolo-imperiale.jpg"
-              className="rounded-circle img-fluid d-md-none mr-2"
-            />
-            Paolo Imperiale
-          </Navbar.Brand>
-          <Navbar.Toggle as={Button} bsPrefix="menu-mobile-open d-lg-none">
-            <FontAwesomeIcon icon={faLayerGroup} className="mr-2" />
-            <span className="d-none menu-mobile-label">Menu</span>
-          </Navbar.Toggle>
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav>
-              <Navbar.Brand
-                href="#home"
-                className="font-weight-bolder d-lg-none"
-              >
-                Paolo Imperiale
-              </Navbar.Brand>
-              <Nav.Link href="#home">Chi sono</Nav.Link>
-              <Nav.Link href="#link">Servizi di consulenza</Nav.Link>
-              <Nav.Link href="#link">Clienti</Nav.Link>
-              <Nav.Link href="#link">Certificazioni</Nav.Link>
-              <Nav.Link href="#link">Contatti</Nav.Link>
-            </Nav>
-            <Button className="ml-auto d-none d-lg-block">
-              <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
-              Call to action
-            </Button>
-            <Navbar.Toggle as={Button} bsPrefix="menu-mobile-close d-lg-none">
-              <FontAwesomeIcon icon={faTimes} />
-            </Navbar.Toggle>
-          </Navbar.Collapse>
-        </Navbar>
+        <Menu />
       </header>
       <main>
         <section style={{ backgroundColor: "#37384e" }} className="pt-5 mt-5">
@@ -182,7 +159,7 @@ export default function Home() {
                     Call to action
                   </Button>
                   {/* <hr className="hr-light mb-5" /> */}
-                  <div class="font-size-sm mb-2 text-white">Esperienza</div>
+                  <div className="font-size-sm mb-2 text-white">Esperienza</div>
                   <div className="progress mb-3">
                     <div
                       className="progress-bar font-weight-medium bg-success"
@@ -193,7 +170,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div class="font-size-sm mb-2 text-white">
+                  <div className="font-size-sm mb-2 text-white">
                     Certificato Google Partner
                   </div>
                   <div className="progress mb-3">
@@ -206,7 +183,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div class="font-size-sm mb-2 text-white">
+                  <div className="font-size-sm mb-2 text-white">
                     Budget pubblicitario gestito negli ultimi 12 mesi
                   </div>
                   <div className="progress mb-3">
